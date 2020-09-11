@@ -82,15 +82,6 @@ public class MultiGPAServer {
         String cumulativeGPA = df.format(cumulativeGPANum);
 
         return semesterGPA + ", " + cumulativeGPA + ", " + String.valueOf(prevCreditHrs);
-
-        /*
-        int real = 0;
-        
-        for(i = 0; i < numGrades; i++) {
-            System.out.println(grades[real + 1] + " " + grades[real+2]);
-            real+=2;
-        }
-         */
     }
 
     static void initTable() {
@@ -111,7 +102,7 @@ public class MultiGPAServer {
         return !clientMessage.trim().equals("Ok");
     }
 
-    public class GPAThread extends Thread {
+    private class GPAThread extends Thread {
 
         private Socket socket;
         private DataOutputStream toClient;
