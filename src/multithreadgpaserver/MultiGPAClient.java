@@ -33,7 +33,6 @@ public class MultiGPAClient {
     public MultiGPAClient(int port,String[] messages) {
         try {
             socket = new Socket(InetAddress.getLocalHost(),port);
-            System.out.println(InetAddress.getLocalHost().getHostAddress());
             fromServer = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
             toServer = new DataOutputStream(socket.getOutputStream());
             

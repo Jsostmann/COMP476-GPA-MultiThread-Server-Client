@@ -46,7 +46,7 @@ public class MultiGPAServer {
             while (true) {
 
                 Socket socket = server.accept();
-                InetAddress ip = socket.getLocalAddress();
+                InetAddress ip = socket.getInetAddress();
                 
                 System.out.println("Established connection with new client at " + ip.getHostAddress());
                 
