@@ -50,7 +50,8 @@ public class MultiGPAServer {
                 
                 System.out.println("Established connection with new client at " + ip.getHostAddress());
                 
-                new GPAThread(socket).start();
+                Thread gpaThread = new Thread(new GPAThread(socket));
+                gpaThread.start();
 
             }
 
@@ -102,7 +103,7 @@ public class MultiGPAServer {
         return !clientMessage.trim().equals("Ok");
     }
 
-    private class GPAThread extends Thread {
+    private class GPAThread implements Runnable {
 
         private Socket socket;
         private DataOutputStream toClient;

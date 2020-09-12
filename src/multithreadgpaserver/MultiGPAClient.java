@@ -30,7 +30,7 @@ public class MultiGPAClient {
         new MultiGPAClient(9989,new String[] {"4, A-, 3, A, 3, C+, 4, B, 3, 2.88, 46",
                                                "5, A, 3, B+, 4, A, 1, C, 3, A-, 3, 3.12, 75"});
     }
-    public MultiGPAClient(int port,String[] messages) {
+    public MultiGPAClient(int port, String[] messages) {
         try {
             socket = new Socket(InetAddress.getLocalHost(),port);
             fromServer = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
