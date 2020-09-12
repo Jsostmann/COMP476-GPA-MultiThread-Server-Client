@@ -21,13 +21,13 @@ import java.util.logging.Logger;
  *
  * @author jamesostmann
  */
-public class MultiGPAServer {
+public class ThreadedServer {
     
     private ServerSocket server;
     private static final HashMap<String, Double> GPA_TABLE;
     
     public static void main(String[] args) {
-        new MultiGPAServer(9989);
+        new ThreadedServer(9989);
     }
     
     static {
@@ -35,7 +35,7 @@ public class MultiGPAServer {
         initTable();
     }
 
-    public MultiGPAServer(int port) {
+    public ThreadedServer(int port) {
 
         int cores = Runtime.getRuntime().availableProcessors();
         System.out.println("Starting server with " + cores + " cores");
@@ -56,7 +56,7 @@ public class MultiGPAServer {
             }
 
         } catch (IOException ex) {
-            Logger.getLogger(MultiGPAServer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ThreadedServer.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -142,7 +142,7 @@ public class MultiGPAServer {
             System.out.println("Socket and thread closed");
                 
             } catch (IOException ex) {
-                Logger.getLogger(MultiGPAServer.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ThreadedServer.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }

@@ -16,7 +16,7 @@ import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MultiGPAClient {
+public class Client {
 
 /**
  *
@@ -27,10 +27,10 @@ public class MultiGPAClient {
     private Socket socket = null;
    
     public static void main(String[] args) {
-        new MultiGPAClient(9989,new String[] {"4, A-, 3, A, 3, C+, 4, B, 3, 2.88, 46",
+        new Client(9989,new String[]    {"4, A-, 3, A, 3, C+, 4, B, 3, 2.88, 46",
                                                "5, A, 3, B+, 4, A, 1, C, 3, A-, 3, 3.12, 75"});
     }
-    public MultiGPAClient(int port, String[] messages) {
+    public Client(int port, String[] messages) {
         try {
             socket = new Socket(InetAddress.getLocalHost(),port);
             fromServer = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
@@ -52,9 +52,9 @@ public class MultiGPAClient {
             toServer.writeUTF("Ok");            
             
         } catch (UnknownHostException ex) {
-            Logger.getLogger(MultiGPAClient.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(MultiGPAClient.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
    
